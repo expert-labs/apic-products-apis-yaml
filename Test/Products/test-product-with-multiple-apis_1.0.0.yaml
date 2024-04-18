@@ -1,0 +1,33 @@
+info:
+  version: 1.0.0
+  title: Test product with multiple APIs
+  name: test-product-with-multiple-apis
+gateways:
+  - datapower-api-gateway
+plans:
+  default-plan:
+    title: Default Plan
+    description: Default Plan
+    rate-limits:
+      default:
+        value: 100/1hour
+    apis:
+      ibm-stock-price-api1.0.0: {}
+      cats-api1.0.0: {}
+apis:
+  ibm-stock-price-api1.0.0:
+    $ref: ibm-stock-price-api_1.0.0.yaml
+  cats-api1.0.0:
+    $ref: cats-api_1.0.0.yaml
+visibility:
+  view:
+    type: public
+    orgs: []
+    tags: []
+    enabled: true
+  subscribe:
+    type: authenticated
+    orgs: []
+    tags: []
+    enabled: true
+product: 1.0.0

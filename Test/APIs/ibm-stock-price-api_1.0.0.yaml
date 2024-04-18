@@ -1,0 +1,105 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: IBM stock price API
+  x-ibm-name: ibm-stock-price-api
+basePath: /ibm-stock-price-api
+x-ibm-configuration:
+  properties:
+    target-url:
+      value: >-
+        https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=QZWDTLCMS6QGZQX3
+      description: URL of the proxy policy
+      encoded: false
+  cors:
+    enabled: false
+  gateway: datapower-api-gateway
+  type: rest
+  phase: realized
+  enforced: true
+  testable: true
+  assembly:
+    execute:
+      - invoke:
+          title: invoke
+          version: 2.0.0
+          verb: keep
+          target-url: $(target-url)
+          follow-redirects: false
+          timeout: 60
+          parameter-control:
+            type: allowlist
+            values: []
+          header-control:
+            type: blocklist
+            values: []
+          inject-proxy-headers: true
+          persistent-connection: true
+          chunked-uploads: true
+    catch:
+      - errors: []
+        execute: []
+  activity-log:
+    enabled: true
+    success-content: activity
+    error-content: payload
+paths:
+  /:
+    get:
+      responses:
+        '200':
+          description: success
+          schema:
+            type: string
+      consumes: []
+      produces: []
+    put:
+      responses:
+        '200':
+          description: success
+          schema:
+            type: string
+      consumes: []
+      produces: []
+    post:
+      responses:
+        '200':
+          description: success
+          schema:
+            type: string
+      consumes: []
+      produces: []
+    delete:
+      responses:
+        '200':
+          description: success
+          schema:
+            type: string
+      consumes: []
+      produces: []
+    head:
+      responses:
+        '200':
+          description: success
+          schema:
+            type: string
+      consumes: []
+      produces: []
+    patch:
+      responses:
+        '200':
+          description: success
+          schema:
+            type: string
+      consumes: []
+      produces: []
+    options:
+      responses:
+        '200':
+          description: success
+          schema:
+            type: string
+      consumes: []
+      produces: []
+schemes:
+  - https
