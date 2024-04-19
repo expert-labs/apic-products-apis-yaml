@@ -15,7 +15,7 @@ plans:
       cats-api1.0.0: {}
 apis:
   cats-api1.0.0:
-    $ref: cats-api_1.0.0.yaml
+    name: cats-api:1.0.0
 visibility:
   view:
     type: public
