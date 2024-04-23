@@ -16,6 +16,8 @@ plans:
 apis:
   cats-api1.0.0:
     name: cats-api:1.0.0
+  cats-api2.0.0:
+    name: cats-api:2.0.0
 visibility:
   view:
     type: public
