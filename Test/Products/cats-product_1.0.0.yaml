@@ -13,6 +13,7 @@ plans:
         value: 100/1hour
     apis:
       cats-api1.0.0: {}
+      cats-api2.0.0: {}
 apis:
   cats-api1.0.0:
     name: cats-api:1.0.0
